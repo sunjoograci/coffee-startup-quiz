@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find your perfect home coffee setup — free quiz</title>
+  <meta name="description" content="Answer 5 quick questions and get a personalized home coffee setup — no jargon, no overwhelm. Real gear recommendations with links to buy." />
+
+  <meta property="og:title" content="What coffee setup is right for you? Take the quiz." />
+  <meta property="og:description" content="5 questions. Instant personalized gear recommendations. No jargon — just the exact setup for your budget, taste, and lifestyle." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1509785307050-d4066910ec1e?w=1200&q=80" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="What coffee setup is right for you? Take the quiz." />
+  <meta name="twitter:description" content="5 questions. Instant personalized gear recommendations. No jargon." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1509785307050-d4066910ec1e?w=1200&q=80" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-eyebrow">Home coffee quiz</div>
+  <h1 class="hero-title">Stop guessing.<br>Find your <em>perfect</em> setup.</h1>
+  <p class="hero-sub">5 questions. Instant personalized gear — matched to your budget, taste, and how much time you actually have.</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">12</span>
+      <span class="stat-label">curated setups</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">$0.80</span>
+      <span class="stat-label">avg. cost per home brew</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">5 min</span>
+      <span class="stat-label">to your recommendation</span>
+    </div>
+  </div>
+  <p class="scroll-cue">↓ start the quiz below</p>
+</header>
+
+<!-- QUIZ -->
+<main>
+  <section class="quiz-section" id="quiz-section">
+    <div class="progress-wrap">
+      <div class="progress-meta">
+        <span id="step-label">Step 1 of 5</span>
+        <span id="step-pct">20%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress" style="width:20%"></div>
+      </div>
+    </div>
+
+    <!-- Step 0 -->
+    <div class="step active" id="step-0">
+      <h2 class="step-q">What kind of coffee do you love most?</h2>
+      <p class="step-sub">Pick the drink you'd order every single day if you could.</p>
+      <div class="options">
+        <div class="opt" data-step="0" data-val="espresso">
+          <span class="opt-icon">☕</span>
+          <div><div class="opt-title">Espresso or lattes</div><div class="opt-desc">Rich, concentrated, milk-based — cappuccinos, flat whites, cortados</div></div>
+        </div>
+        <div class="opt" data-step="0" data-val="pourover">
+          <span class="opt-icon">🫖</span>
+          <div><div class="opt-title">Black coffee, pour-over</div><div class="opt-desc">Clean, nuanced, bright — I want to taste the coffee itself</div></div>
+        </div>
+        <div class="opt" data-step="0" data-val="coldbrew">
+          <span class="opt-icon">🧊</span>
+          <div><div class="opt-title">Cold brew or iced coffee</div><div class="opt-desc">Smooth, low-acid, refreshing — especially in summer</div></div>
+        </div>
+        <div class="opt" data-step="0" data-val="mixed">
+          <span class="opt-icon">🎯</span>
+          <div><div class="opt-title">I want it all — not sure yet</div><div class="opt-desc">Help me figure out what I'll actually love at home</div></div>
+        </div>
+      </div>
+      <div class="nav"><div></div><button class="btn-next" id="next-0" onclick="advance(0)">Next →</button></div>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="step" id="step-1">
+      <h2 class="step-q">What's your honest budget for a setup?</h2>
+      <p class="step-sub">This covers everything — machine, grinder, accessories. You can always upgrade later.</p>
+      <div class="options">
+        <div class="opt" data-step="1" data-val="low">
+          <span class="opt-icon">💰</span>
+          <div><div class="opt-title">Under $100</div><div class="opt-desc">I want to start simple and see if I like it first</div></div>
+        </div>
+        <div class="opt" data-step="1" data-val="mid">
+          <span class="opt-icon">💳</span>
+          <div><div class="opt-title">$100 – $300</div><div class="opt-desc">Serious enough to get something good, not going all-in yet</div></div>
+        </div>
+        <div class="opt" data-step="1" data-val="high">
+          <span class="opt-icon">🏆</span>
+          <div><div class="opt-title">$300 – $600</div><div class="opt-desc">I want a real setup I'll be proud of for years</div></div>
+        </div>
+        <div class="opt" data-step="1" data-val="pro">
+          <span class="opt-icon">🚀</span>
+          <div><div class="opt-title">$600+, no limit</div><div class="opt-desc">I'm committed. Just show me the best</div></div>
+        </div>
+      </div>
+      <div class="nav"><button class="btn-back" onclick="back(1)">← Back</button><button class="btn-next" id="next-1" onclick="advance(1)">Next →</button></div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step" id="step-2">
+      <h2 class="step-q">How much time do you have each morning?</h2>
+      <p class="step-sub">Be honest — your setup should fit your real life, not your aspirational self.</p>
+      <div class="options">
+        <div class="opt" data-step="2" data-val="fast">
+          <span class="opt-icon">⚡</span>
+          <div><div class="opt-title">Under 5 minutes</div><div class="opt-desc">I need coffee, not a hobby — fast and easy every time</div></div>
+        </div>
+        <div class="opt" data-step="2" data-val="medium">
+          <span class="opt-icon">⏱️</span>
+          <div><div class="opt-title">10–15 minutes</div><div class="opt-desc">I enjoy the ritual, but I'm still getting to work</div></div>
+        </div>
+        <div class="opt" data-step="2" data-val="slow">
+          <span class="opt-icon">🧘</span>
+          <div><div class="opt-title">As long as it takes</div><div class="opt-desc">Making coffee is part of how I start my day — I love the process</div></div>
+        </div>
+      </div>
+      <div class="nav"><button class="btn-back" onclick="back(2)">← Back</button><button class="btn-next" id="next-2" onclick="advance(2)">Next →</button></div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step" id="step-3">
+      <h2 class="step-q">What matters most to you in a home setup?</h2>
+      <p class="step-sub">Pick the one thing you'd hate to compromise on.</p>
+      <div class="options">
+        <div class="opt" data-step="3" data-val="easy">
+          <span class="opt-icon">😌</span>
+          <div><div class="opt-title">Simplicity</div><div class="opt-desc">I want great coffee without having to think about it</div></div>
+        </div>
+        <div class="opt" data-step="3" data-val="quality">
+          <span class="opt-icon">✨</span>
+          <div><div class="opt-title">Café-level quality</div><div class="opt-desc">I want it to taste like it cost $7. That's the whole point</div></div>
+        </div>
+        <div class="opt" data-step="3" data-val="control">
+          <span class="opt-icon">🎛️</span>
+          <div><div class="opt-title">Control and learning</div><div class="opt-desc">I want to understand what I'm doing and get better at it</div></div>
+        </div>
+        <div class="opt" data-step="3" data-val="value">
+          <span class="opt-icon">📊</span>
+          <div><div class="opt-title">Value over time</div><div class="opt-desc">I want to stop spending $5/day at cafés — the math matters</div></div>
+        </div>
+      </div>
+      <div class="nav"><button class="btn-back" onclick="back(3)">← Back</button><button class="btn-next" id="next-3" onclick="advance(3)">Next →</button></div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step" id="step-4">
+      <h2 class="step-q">How would you describe yourself right now?</h2>
+      <p class="step-sub">No wrong answers. This helps us get the jargon level right.</p>
+      <div class="options">
+        <div class="opt" data-step="4" data-val="beginner">
+          <span class="opt-icon">👋</span>
+          <div><div class="opt-title">Total beginner</div><div class="opt-desc">I don't even own a grinder yet. Start from zero</div></div>
+        </div>
+        <div class="opt" data-step="4" data-val="some">
+          <span class="opt-icon">📖</span>
+          <div><div class="opt-title">I've done some research</div><div class="opt-desc">I know some terms — bloom, grind size — but haven't pulled the trigger</div></div>
+        </div>
+        <div class="opt" data-step="4" data-val="hobbyist">
+          <span class="opt-icon">🔬</span>
+          <div><div class="opt-title">Hobbyist in training</div><div class="opt-desc">I have some gear already and want to upgrade or fill gaps</div></div>
+        </div>
+      </div>
+      <div class="nav"><button class="btn-back" onclick="back(4)">← Back</button><button class="btn-next" id="next-4" onclick="showResult()">See my setup →</button></div>
+    </div>
+  </section>
+
+  <!-- RESULT -->
+  <section class="result-section" id="result-section">
+    <div class="result-badge">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Your personalized setup
+    </div>
+    <h2 class="result-title" id="result-title">The Confident Beginner Kit</h2>
+    <p class="result-sub" id="result-sub">Based on your answers, here's exactly what we'd recommend — no jargon, no guessing.</p>
+
+    <div class="kit-card">
+      <div class="kit-header">
+        <span class="kit-name" id="kit-label">Starter espresso kit</span>
+        <span class="kit-total" id="kit-total">Est. $310 total</span>
+      </div>
+      <div id="kit-items"></div>
+    </div>
+
+    <!-- Primary CTA: Free Brew Guide -->
+    <div class="paywall-primary">
+      <div class="paywall-tag primary">✦ Free brew guide</div>
+      <h3 class="paywall-title">Get the step-by-step guide for this exact setup</h3>
+      <p class="paywall-desc">We'll walk you through your first brew, explain what each piece does, and tell you exactly what to adjust when something tastes off.</p>
+      <div class="feat-list">
+        <div class="feat">
+          <div class="feat-dot"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Plain-English setup instructions (no jargon)
+        </div>
+        <div class="feat">
+          <div class="feat-dot"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          What to do when your coffee tastes wrong
+        </div>
+        <div class="feat">
+          <div class="feat-dot"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Bean recommendations matched to your machine
+        </div>
+        <div class="feat">
+          <div class="feat-dot"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Your upgrade path when you're ready to level up
+        </div>
+      </div>
+      <button class="cta-primary" onclick="openModal('guide')">Get your free brew guide →</button>
+      <p class="cta-note">Free forever · No credit card needed</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Secondary CTA: Subscription -->
+    <div class="paywall-secondary">
+      <div class="paywall-tag secondary">✦ Monthly subscription</div>
+      <h3 class="paywall-title">Get the right beans delivered, every time</h3>
+      <p class="paywall-desc">Beans matched to your machine, your taste, and the season. Cold brew in summer, rich espresso blends in winter. Never waste money on beans that don't work with your setup again.</p>
+      <div class="feat-list">
+        <div class="feat">
+          <div class="feat-dot" style="background:#F1EFE8"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Setup-matched bean recommendations
+        </div>
+        <div class="feat">
+          <div class="feat-dot" style="background:#F1EFE8"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Seasonal and cold brew rotation
+        </div>
+        <div class="feat">
+          <div class="feat-dot" style="background:#F1EFE8"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Rate each bag — improve future deliveries
+        </div>
+        <div class="feat">
+          <div class="feat-dot" style="background:#F1EFE8"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Artisan syrups and creative additions
+        </div>
+      </div>
+      <button class="cta-secondary" onclick="openModal('subscription')">Join the waitlist — $29/month</button>
+      <p class="cta-note">$0.80/cup vs $6 at a café · Pays for itself in 6 cups</p>
+    </div>
+
+    <div class="restart">
+      <button class="restart-btn" onclick="restartQuiz()">Start over with different answers</button>
+    </div>
+  </section>
+</main>
+
+<!-- EMAIL MODAL -->
+<div class="modal-bg" id="modal-bg">
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-text">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
+    <div id="modal-form-state">
+      <h3 class="modal-title" id="modal-title-text">Get your free brew guide</h3>
+      <p class="modal-sub" id="modal-sub">Drop your email and we'll send the step-by-step guide for your exact setup — no jargon, no spam.</p>
+      <input type="email" class="email-input" id="email-input" placeholder="your@email.com" autocomplete="email" />
+      <button class="cta-primary" id="modal-submit-btn" onclick="handleSubmit()">Send me the guide →</button>
+      <p class="modal-privacy">No spam. Unsubscribe anytime.</p>
+    </div>
+    <div id="modal-success-state" style="display:none; text-align:center; padding: 1rem 0;">
+      <div style="font-size:2.5rem; margin-bottom:0.75rem;">✉️</div>
+      <h3 class="modal-title">You're on the list</h3>
+      <p class="modal-sub">We'll send your brew guide shortly. Check your inbox (and spam, just in case).</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Built for coffee lovers who are tired of being overwhelmed. &nbsp;·&nbsp; No jargon. No bias. Just great coffee.
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
