@@ -1,0 +1,12 @@
+{
+  "name": "coffee-startup-quiz",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "posthog-node": "^5.38.6"
+  },
+  "devDependencies": {
+    "supabase": "^2.108.0"
+  }
+}
