@@ -219,12 +219,9 @@ let modalType = 'guide';
 
 function openModal(type) {
   modalType = type;
-  const isSubscription = type === 'subscription';
-  document.getElementById('modal-title-text').textContent = isSubscription ? 'Join the waitlist' : 'Get your free brew guide';
-  document.getElementById('modal-sub').textContent = isSubscription
-    ? "Drop your email and we'll let you know when setup-matched bean subscriptions launch. First subscribers get a discount."
-    : "Drop your email and we'll send the step-by-step guide for your exact setup — no jargon, no spam.";
-  document.getElementById('modal-submit-btn').textContent = isSubscription ? 'Join the waitlist →' : 'Send me the guide →';
+  document.getElementById('modal-title-text').textContent = 'Join our brew coach app waitlist';
+  document.getElementById('modal-sub').textContent = "Drop your email and we'll notify you as soon as the app launches — early access to learn how to dial in your perfect brew.";
+  document.getElementById('modal-submit-btn').textContent = 'Join the waitlist →';
   document.getElementById('modal-form-state').style.display = 'block';
   document.getElementById('modal-success-state').style.display = 'none';
   document.getElementById('modal-bg').classList.add('open');

@@ -29,14 +29,6 @@
   <p class="hero-sub">5 questions. Instant personalized gear — matched to your budget, taste, and how much time you actually have.</p>
   <div class="hero-stats">
     <div class="stat">
-      <span class="stat-num">12</span>
-      <span class="stat-label">curated setups</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num">$0.80</span>
-      <span class="stat-label">avg. cost per home brew</span>
-    </div>
-    <div class="stat">
       <span class="stat-num">5 min</span>
       <span class="stat-label">to your recommendation</span>
     </div>
@@ -192,11 +184,11 @@
       <div id="kit-items"></div>
     </div>
 
-    <!-- Primary CTA: Free Brew Guide -->
+    <!-- Primary CTA: Brew Coach App Waitlist -->
     <div class="paywall-primary">
-      <div class="paywall-tag primary">✦ Free brew guide</div>
-      <h3 class="paywall-title">Get the step-by-step guide for this exact setup</h3>
-      <p class="paywall-desc">We'll walk you through your first brew, explain what each piece does, and tell you exactly what to adjust when something tastes off.</p>
+      <div class="paywall-tag primary">✦ Join the waitlist</div>
+      <h3 class="paywall-title">Get early access to our brew coach app</h3>
+      <p class="paywall-desc">The app that makes dialing in your coffee simple. We'll walk you through your first brew with plain-English instructions, show you exactly what to adjust when your coffee tastes wrong, and help you master dialing in.</p>
       <div class="feat-list">
         <div class="feat">
           <div class="feat-dot"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -208,45 +200,13 @@
         </div>
         <div class="feat">
           <div class="feat-dot"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          Bean recommendations matched to your machine
-        </div>
-        <div class="feat">
-          <div class="feat-dot"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          Your upgrade path when you're ready to level up
+          Learn how to dial in your coffee
         </div>
       </div>
-      <button class="cta-primary" onclick="openModal('guide')">Get your free brew guide →</button>
+      <button class="cta-primary" onclick="openModal('guide')">Join the waitlist →</button>
       <p class="cta-note">Free forever · No credit card needed</p>
     </div>
 
-    <div class="divider"></div>
-
-    <!-- Secondary CTA: Subscription -->
-    <div class="paywall-secondary">
-      <div class="paywall-tag secondary">✦ Monthly subscription</div>
-      <h3 class="paywall-title">Get the right beans delivered, every time</h3>
-      <p class="paywall-desc">Beans matched to your machine, your taste, and the season. Cold brew in summer, rich espresso blends in winter. Never waste money on beans that don't work with your setup again.</p>
-      <div class="feat-list">
-        <div class="feat">
-          <div class="feat-dot" style="background:#F1EFE8"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          Setup-matched bean recommendations
-        </div>
-        <div class="feat">
-          <div class="feat-dot" style="background:#F1EFE8"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          Seasonal and cold brew rotation
-        </div>
-        <div class="feat">
-          <div class="feat-dot" style="background:#F1EFE8"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          Rate each bag — improve future deliveries
-        </div>
-        <div class="feat">
-          <div class="feat-dot" style="background:#F1EFE8"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5 3.5-4" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          Artisan syrups and creative additions
-        </div>
-      </div>
-      <button class="cta-secondary" onclick="openModal('subscription')">Join the waitlist — $29/month</button>
-      <p class="cta-note">$0.80/cup vs $6 at a café · Pays for itself in 6 cups</p>
-    </div>
 
     <div class="restart">
       <button class="restart-btn" onclick="restartQuiz()">Start over with different answers</button>
@@ -259,8 +219,8 @@
   <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-text">
     <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
     <div id="modal-form-state">
-      <h3 class="modal-title" id="modal-title-text">Get your free brew guide</h3>
-      <p class="modal-sub" id="modal-sub">Drop your email and we'll send the step-by-step guide for your exact setup — no jargon, no spam.</p>
+      <h3 class="modal-title" id="modal-title-text">Join our brew coach app waitlist</h3>
+      <p class="modal-sub" id="modal-sub">Drop your email and we'll notify you as soon as the app launches — early access to learn how to dial in your perfect brew.</p>
       <input type="email" class="email-input" id="email-input" placeholder="your@email.com" autocomplete="email" />
       <button class="cta-primary" id="modal-submit-btn" onclick="handleSubmit()">Send me the guide →</button>
       <p class="modal-privacy">No spam. Unsubscribe anytime.</p>
@@ -273,9 +233,7 @@
   </div>
 </div>
 
-<footer>
-  Built for coffee lovers who are tired of being overwhelmed. &nbsp;·&nbsp; No jargon. No bias. Just great coffee.
-</footer>
+<footer></footer>
 
 <script src="script.js"></script>
 </body>
