@@ -42,7 +42,7 @@ export default async function handler(req, res) {
     event: 'email_signup_server',
     properties: { type, kit, answers },
   });
-  await posthog.flushAsync();
+  posthog.flush();
 
   return res.status(200).json({ ok: true });
 }

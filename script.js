@@ -1,5 +1,10 @@
 const answers = {};
 
+// Track page view
+if (typeof posthog !== 'undefined') {
+  posthog.startPageView();
+}
+
 const KITS = {
   espresso: {
     low: {
@@ -8,9 +13,9 @@ const KITS = {
       label: "Budget espresso kit",
       total: "Est. $95 total",
       items: [
-        { name: "Bialetti Moka Express (3-cup)", why: "Stovetop espresso — strong, rich, nearly identical to a real shot", price: "$30", link: "https://www.amazon.com/s?k=bialetti+moka+express+3+cup" },
-        { name: "Timemore C2 hand grinder", why: "Consistent grind at a fraction of electric grinder prices", price: "$50", link: "https://www.amazon.com/s?k=timemore+c2+hand+grinder" },
-        { name: "Kitchen scale (0.1g precision)", why: "Measuring is the single biggest upgrade you can make to your brew", price: "$15", link: "https://www.amazon.com/s?k=coffee+scale+0.1g" }
+        { name: "Bialetti Moka Express (3-cup)", why: "Stovetop espresso that's strong, rich, nearly identical to a real shot", price: "$30", link: "https://www.amazon.com/Bialetti-Express-Stainless-Stovetop-Espresso/dp/B0000CF3TY" },
+        { name: "Timemore C2 hand grinder", why: "Consistent grind for way less than an electric grinder", price: "$50", link: "https://www.amazon.com/Timemore-Portable-Manual-Grinder-Capacity/dp/B01N4PFUHK" },
+        { name: "Kitchen scale (0.1g precision)", why: "Measuring your coffee is the single biggest upgrade you can make to your brew", price: "$15", link: "https://www.amazon.com/Hario-Scale-Accuracy-Drip-Scale/dp/B001RF3XJ2" }
       ]
     },
     mid: {
@@ -19,20 +24,21 @@ const KITS = {
       label: "Starter espresso kit",
       total: "Est. $425 total",
       items: [
-        { name: "Breville Bambino", why: "Best beginner espresso machine — 3-second heat-up, simple controls, great results", price: "$230", link: "https://www.amazon.com/s?k=breville+bambino+espresso" },
-        { name: "Baratza Encore grinder", why: "Most recommended beginner grinder by r/espresso — consistent and upgradeable", price: "$170", link: "https://www.amazon.com/s?k=baratza+encore+grinder" },
-        { name: "Dosing funnel + tamper set", why: "Keeps your workflow clean and your tamp consistent", price: "$25", link: "https://www.amazon.com/s?k=espresso+dosing+funnel+tamper" }
+        { name: "Breville Bambino", why: "The best beginner espresso machine. It heats up in 3 seconds, has simple controls, and makes great results", price: "$230", link: "https://www.amazon.com/Breville-Bambino-Espresso-Machine-BES450XL/dp/B00MV8W2MS" },
+        { name: "Baratza Encore grinder", why: "Most recommended beginner grinder for a reason. Consistent, upgradeable, reliable", price: "$170", link: "https://www.amazon.com/Baratza-Encore-Conical-Burr-Grinder/dp/B00LW8477M" },
+        { name: "Dosing funnel + tamper set", why: "Keeps your workflow clean and makes your tamp more consistent", price: "$25", link: "https://www.amazon.com/ESPRESSO-Distribution-Aluminum-Compatible-Machines/dp/B07KSBW5BF" }
       ]
     },
     high: {
       title: "The Serious Home Barista Setup",
-      sub: "A real espresso machine with a step-up grinder. This setup will last you years and grow with your skills.",
+      sub: "A real espresso machine paired with a dedicated burr grinder. This setup will last you years and grow with your skills.",
       label: "Enthusiast espresso kit",
-      total: "Est. $660 total",
+      total: "Est. $810 total",
       items: [
-        { name: "Breville Barista Express Impress", why: "Built-in grinder, pressure gauge, auto-tamp assist — everything in one unit", price: "$480", link: "https://www.amazon.com/s?k=breville+barista+express+impress" },
-        { name: "Acaia Pearl scale", why: "Tracks dose-in and dose-out with a timer — the feedback loop that makes you better", price: "$150", link: "https://www.amazon.com/s?k=acaia+pearl+scale" },
-        { name: "Artisan milk pitcher + thermometer", why: "For latte art when you're ready — sooner than you think", price: "$30", link: "https://www.amazon.com/s?k=milk+pitcher+thermometer+barista" }
+        { name: "Breville Barista Express Impress", why: "Built-in grinder, pressure gauge, auto-tamp assist. Everything you need in one unit", price: "$480", link: "https://www.amazon.com/Breville-Barista-Express-Impress-BES876BSS/dp/B07Y3VPHBF" },
+        { name: "Baratza Sette 270 grinder", why: "Dedicated espresso grinder with micro-adjustments. Your built-in grinder will only take you so far", price: "$140", link: "https://www.amazon.com/Baratza-Sette-270-Conical-Grinder/dp/B01IHQJWSE" },
+        { name: "Acaia Pearl scale", why: "Tracks exactly how much coffee goes in and comes out, with a built-in timer. This is how you actually dial in shots", price: "$150", link: "https://www.amazon.com/Acaia-Pearl-Scale-Espresso-Black/dp/B08VL8PX8S" },
+        { name: "Milk pitcher + thermometer", why: "For making latte art when you're ready. You'll get there sooner than you think", price: "$40", link: "https://www.amazon.com/Rattleware-Stainless-Espresso-Steaming-Pitcher/dp/B00OXGZJVI" }
       ]
     }
   },
@@ -43,9 +49,9 @@ const KITS = {
       label: "Budget pour-over kit",
       total: "Est. $80 total",
       items: [
-        { name: "Hario V60 (plastic, size 02)", why: "Used by World Barista Champions. Plastic retains heat well and costs almost nothing", price: "$10", link: "https://www.amazon.com/s?k=hario+v60+plastic+02" },
-        { name: "Timemore C2 hand grinder", why: "Consistent grind at a fraction of electric grinder prices — invest here first", price: "$50", link: "https://www.amazon.com/s?k=timemore+c2+hand+grinder" },
-        { name: "Gooseneck kettle (any brand)", why: "Pour control is everything in pour-over — a gooseneck is non-negotiable", price: "$20", link: "https://www.amazon.com/s?k=gooseneck+kettle+pour+over" }
+        { name: "Hario V60 (plastic, size 02)", why: "Used by World Barista Champions. Plastic holds heat well and costs almost nothing", price: "$10", link: "https://www.amazon.com/Hario-Plastic-Dripper-Coffee-VD-02P/dp/B001RXGWKY" },
+        { name: "Timemore C2 hand grinder", why: "Consistent grind for a fraction of what electric grinders cost. Invest here first", price: "$50", link: "https://www.amazon.com/Timemore-Portable-Manual-Grinder-Capacity/dp/B01N4PFUHK" },
+        { name: "Gooseneck kettle (any brand)", why: "Pour control is everything in pour-over. A gooseneck isn't optional, it's essential", price: "$20", link: "https://www.amazon.com/Fellow-Stagg-Gooseneck-Kettle-Pouring/dp/B00B4SKF4W" }
       ]
     },
     mid: {
@@ -54,9 +60,9 @@ const KITS = {
       label: "Pour-over starter kit",
       total: "Est. $365 total",
       items: [
-        { name: "Fellow Stagg EKG kettle", why: "Temperature control to 1°F — the single most impactful pour-over upgrade", price: "$165", link: "https://www.amazon.com/s?k=fellow+stagg+ekg+kettle" },
-        { name: "Hario V60 (ceramic, size 02)", why: "Better heat retention than plastic. The same brewer pros use in competition", price: "$30", link: "https://www.amazon.com/s?k=hario+v60+ceramic" },
-        { name: "Baratza Encore grinder", why: "Consistent, adjustable, upgradeable — the gold standard beginner grinder", price: "$170", link: "https://www.amazon.com/s?k=baratza+encore+grinder" }
+        { name: "Fellow Stagg EKG kettle", why: "Temperature control to 1 degree. This is the single most impactful upgrade for pour-over brewing", price: "$165", link: "https://www.amazon.com/Fellow-Stagg-Gooseneck-Kettle-Electric/dp/B08FXNBSRR" },
+        { name: "Hario V60 (ceramic, size 02)", why: "Better heat retention than plastic. The same brewer competition baristas use", price: "$30", link: "https://www.amazon.com/Hario-Ceramic-Coffee-Dripper-VD-02R/dp/B001V44WPG" },
+        { name: "Baratza Encore grinder", why: "Consistent, adjustable, upgradeable. The gold standard beginner grinder", price: "$170", link: "https://www.amazon.com/Baratza-Encore-Conical-Burr-Grinder/dp/B00LW8477M" }
       ]
     },
     high: {
@@ -65,33 +71,33 @@ const KITS = {
       label: "Enthusiast pour-over kit",
       total: "Est. $600 total",
       items: [
-        { name: "Fellow Stagg EKG Pro kettle", why: "Bluetooth connectivity and stopwatch mode — pairs with your brew timer perfectly", price: "$200", link: "https://www.amazon.com/s?k=fellow+stagg+ekg+pro" },
-        { name: "Fellow Ode Gen 2 grinder", why: "Flat burrs produce a more even particle size — a real upgrade from Encore", price: "$250", link: "https://www.amazon.com/s?k=fellow+ode+gen+2+grinder" },
-        { name: "Acaia Pearl scale", why: "Tracks flow rate in real-time — tells you if your pour is consistent", price: "$150", link: "https://www.amazon.com/s?k=acaia+pearl+scale" }
+        { name: "Fellow Stagg EKG Pro kettle", why: "Bluetooth connectivity and stopwatch mode. Pairs perfectly with your brew timer", price: "$200", link: "https://www.amazon.com/Fellow-Stagg-EKG-Gooseneck-Kettle/dp/B0851D3C5D" },
+        { name: "Fellow Ode Gen 2 grinder", why: "Flat burrs produce more even particle size. A real upgrade from conical burrs", price: "$250", link: "https://www.amazon.com/Fellow-Ode-Grinder-Stainless-Steel/dp/B095GQRXPP" },
+        { name: "Acaia Pearl scale", why: "Tracks your flow rate in real-time. Tells you if your pour is consistent", price: "$150", link: "https://www.amazon.com/Acaia-Pearl-Scale-Espresso-Black/dp/B08VL8PX8S" }
       ]
     }
   },
   coldbrew: {
     low: {
       title: "The Cold Brew Starter",
-      sub: "Cold brew is the most forgiving method to learn. This minimal setup makes 32oz batches that last a week in your fridge.",
+      sub: "Cold brew is the most forgiving brewing method to learn. This setup makes 32oz batches that stay fresh in your fridge for a week.",
       label: "Budget cold brew kit",
       total: "Est. $48 total",
       items: [
-        { name: "Takeya Cold Brew Maker (1 quart)", why: "Mesh filter, tight lid, makes perfect cold brew overnight — top-rated for 5 years running", price: "$25", link: "https://www.amazon.com/s?k=takeya+cold+brew+maker" },
-        { name: "Pre-ground coarse coffee", why: "Cold brew doesn't need a grinder — start with pre-ground to keep it simple", price: "$15", link: "https://www.amazon.com/s?k=coarse+ground+coffee+cold+brew" },
-        { name: "Fine-mesh strainer (backup filter)", why: "For a cleaner cup if you want less sediment in the final concentrate", price: "$8", link: "https://www.amazon.com/s?k=fine+mesh+strainer+kitchen" }
+        { name: "Takeya Cold Brew Maker (1 quart)", why: "Mesh filter, tight lid, makes perfect cold brew overnight. Top-rated for years", price: "$25", link: "https://www.amazon.com/Takeya-Patented-Airtight-Silicone-Seal/dp/B00INXSMBY" },
+        { name: "Pre-ground coarse coffee", why: "Cold brew doesn't need a grinder. Start with pre-ground to keep things simple", price: "$15", link: "https://www.amazon.com/s?k=coarse+ground+coffee+cold+brew&i=grocery" },
+        { name: "Fine-mesh strainer (backup filter)", why: "For a cleaner cup if you want less sediment in your final concentrate", price: "$8", link: "https://www.amazon.com/OXO-Stainless-Steel-Micro-Strainer/dp/B00006JPGE" }
       ]
     },
     mid: {
       title: "The Cold Brew Upgrade Kit",
-      sub: "Freshly ground beans make cold brew dramatically better. This setup produces concentrate good enough to replace your daily RTD habit.",
+      sub: "Freshly ground beans make cold brew dramatically better. This setup produces concentrate good enough to replace your daily store-bought habit.",
       label: "Cold brew kit with fresh grind",
       total: "Est. $228 total",
       items: [
-        { name: "OXO Brew Cold Brew Coffee Maker", why: "2-quart capacity, rainmaker lid for even saturation, clean concentrate every time", price: "$40", link: "https://www.amazon.com/s?k=oxo+brew+cold+brew+coffee+maker" },
-        { name: "Baratza Encore (set to coarse)", why: "Same grinder, wide grind range — dial to coarse for cold brew perfection", price: "$170", link: "https://www.amazon.com/s?k=baratza+encore+grinder" },
-        { name: "Airtight glass pitcher", why: "Keeps cold brew fresh for up to 2 weeks in the fridge", price: "$18", link: "https://www.amazon.com/s?k=glass+pitcher+airtight+cold+brew" }
+        { name: "OXO Brew Cold Brew Coffee Maker", why: "2-quart capacity with a rainmaker lid for even saturation. Clean concentrate every time", price: "$40", link: "https://www.amazon.com/OXO-Brew-Smart-Seal-Bottle/dp/B00OCCMHVS" },
+        { name: "Baratza Encore (set to coarse)", why: "Same grinder with a wide range. Just dial it to coarse for cold brew perfection", price: "$170", link: "https://www.amazon.com/Baratza-Encore-Conical-Burr-Grinder/dp/B00LW8477M" },
+        { name: "Airtight glass pitcher", why: "Keeps cold brew fresh for up to 2 weeks in the fridge", price: "$18", link: "https://www.amazon.com/Pyrex-Non-Reactive-Borosilicate-Microwave-Compatible-Containers/dp/B00JSNIRFI" }
       ]
     },
     high: {
@@ -100,9 +106,9 @@ const KITS = {
       label: "Premium cold coffee kit",
       total: "Est. $430 total",
       items: [
-        { name: "Yama Glass Cold Drip Tower", why: "Slow-drip cold brew takes 8 hours but produces a silkier, more complex cup than immersion", price: "$150", link: "https://www.amazon.com/s?k=yama+glass+cold+drip+tower" },
-        { name: "Breville Bambino (for iced espresso)", why: "Pull a double shot directly over ice — 'flash chill' espresso is a revelation", price: "$230", link: "https://www.amazon.com/s?k=breville+bambino+espresso" },
-        { name: "Timemore C2 (compact, for travel)", why: "Make cold brew concentrate anywhere — hotel, camping, office", price: "$50", link: "https://www.amazon.com/s?k=timemore+c2+hand+grinder" }
+        { name: "Yama Glass Cold Drip Tower", why: "Slow-drip cold brew takes 8 hours but produces a silkier, more complex cup than just steeping", price: "$150", link: "https://www.amazon.com/Yama-Glass-Cold-Drip-Maker/dp/B00E6LFSHS" },
+        { name: "Breville Bambino (for iced espresso)", why: "Pull a double shot directly over ice. Flash-chilled espresso is a revelation", price: "$230", link: "https://www.amazon.com/Breville-Bambino-Espresso-Machine-BES450XL/dp/B00MV8W2MS" },
+        { name: "Timemore C2 (compact, for travel)", why: "Make cold brew concentrate anywhere, hotel, camping, your office", price: "$50", link: "https://www.amazon.com/Timemore-Portable-Manual-Grinder-Capacity/dp/B01N4PFUHK" }
       ]
     }
   },
@@ -113,20 +119,20 @@ const KITS = {
       label: "Versatile starter kit",
       total: "Est. $110 total",
       items: [
-        { name: "AeroPress (original)", why: "The most versatile brewer ever made — espresso-style, filter, and cold brew concentrate", price: "$35", link: "https://www.amazon.com/s?k=aeropress+coffee+maker+original" },
-        { name: "Timemore C2 hand grinder", why: "Works for every brew method and produces a consistent grind at this price", price: "$50", link: "https://www.amazon.com/s?k=timemore+c2+hand+grinder" },
-        { name: "Takeya Cold Brew Maker", why: "Add cold brew capability — let your first batch steep tonight while you try AeroPress tomorrow", price: "$25", link: "https://www.amazon.com/s?k=takeya+cold+brew+maker" }
+        { name: "AeroPress (original)", why: "The most versatile brewer ever made. You can make espresso-style, filter coffee, or cold brew concentrate", price: "$35", link: "https://www.amazon.com/Aeropress-Coffee-Maker-Micro-Filter-Cartridges/dp/B0018RCJMI" },
+        { name: "Timemore C2 hand grinder", why: "Works for every brewing method and produces a consistent grind at this price", price: "$50", link: "https://www.amazon.com/Timemore-Portable-Manual-Grinder-Capacity/dp/B01N4PFUHK" },
+        { name: "Takeya Cold Brew Maker", why: "Add cold brew capability. Let your first batch steep overnight while you try the AeroPress tomorrow", price: "$25", link: "https://www.amazon.com/Takeya-Patented-Airtight-Silicone-Seal/dp/B00INXSMBY" }
       ]
     },
     mid: {
       title: "The Versatile Hobbyist Kit",
-      sub: "A setup that covers espresso-style drinks AND filter coffee — the two methods most people end up loving.",
+      sub: "A setup that covers espresso-style drinks and filter coffee. The two methods most people end up loving.",
       label: "Multi-method starter kit",
       total: "Est. $445 total",
       items: [
-        { name: "Breville Bambino", why: "Best beginner espresso machine — covers lattes, cappuccinos, and straight shots", price: "$230", link: "https://www.amazon.com/s?k=breville+bambino+espresso" },
-        { name: "Baratza Encore grinder", why: "The only grinder that handles both espresso and pour-over at this price", price: "$170", link: "https://www.amazon.com/s?k=baratza+encore+grinder" },
-        { name: "Hario V60 + gooseneck kettle", why: "For pour-over days — a completely different coffee experience on the same grinder", price: "$40", link: "https://www.amazon.com/s?k=hario+v60+gooseneck+kettle+set" }
+        { name: "Breville Bambino", why: "Best beginner espresso machine. Makes lattes, cappuccinos, and straight shots well", price: "$230", link: "https://www.amazon.com/Breville-Bambino-Espresso-Machine-BES450XL/dp/B00MV8W2MS" },
+        { name: "Baratza Encore grinder", why: "The only grinder that handles both espresso and pour-over at this price", price: "$170", link: "https://www.amazon.com/Baratza-Encore-Conical-Burr-Grinder/dp/B00LW8477M" },
+        { name: "Hario V60 + gooseneck kettle", why: "For your pour-over days. A completely different coffee experience on the same grinder", price: "$40", link: "https://www.amazon.com/s?k=hario+v60+gooseneck+kettle+set" }
       ]
     },
     high: {
@@ -135,9 +141,9 @@ const KITS = {
       label: "Full home coffee bar kit",
       total: "Est. $720 total",
       items: [
-        { name: "Breville Barista Express Impress", why: "Built-in grinder handles espresso — one less device on your counter", price: "$480", link: "https://www.amazon.com/s?k=breville+barista+express+impress" },
-        { name: "Fellow Stagg EKG kettle", why: "Temperature-controlled for pour-over and Chemex on non-espresso days", price: "$165", link: "https://www.amazon.com/s?k=fellow+stagg+ekg+kettle" },
-        { name: "OXO Cold Brew Maker", why: "Always have concentrate in the fridge — 5 seconds to pour over ice", price: "$40", link: "https://www.amazon.com/s?k=oxo+brew+cold+brew+coffee+maker" }
+        { name: "Breville Barista Express Impress", why: "Built-in grinder handles espresso, so you have one less device cluttering your counter", price: "$480", link: "https://www.amazon.com/Breville-Barista-Express-Impress-BES876BSS/dp/B07Y3VPHBF" },
+        { name: "Fellow Stagg EKG kettle", why: "Temperature-controlled for pour-over and Chemex on days you want something different", price: "$165", link: "https://www.amazon.com/Fellow-Stagg-Gooseneck-Kettle-Electric/dp/B08FXNBSRR" },
+        { name: "OXO Cold Brew Maker", why: "Always have concentrate in the fridge. Grab it and pour over ice in 5 seconds", price: "$40", link: "https://www.amazon.com/OXO-Brew-Smart-Seal-Bottle/dp/B00OCCMHVS" }
       ]
     }
   }
@@ -177,6 +183,9 @@ function advance(step) {
   currentStep = step + 1;
   document.getElementById(`step-${currentStep}`).classList.add('active');
   updateProgress(currentStep);
+  if (typeof posthog !== 'undefined') {
+    posthog.capture('quiz_step_completed', { step, answer: answers[step] });
+  }
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -212,6 +221,13 @@ function showResult() {
     </div>`;
   });
 
+  if (typeof posthog !== 'undefined') {
+    posthog.capture('quiz_completed', {
+      kit: kit.title,
+      answers
+    });
+  }
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -240,16 +256,63 @@ document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape') closeModal();
 });
 
-function handleSubmit() {
+async function handleSubmit() {
   const email = document.getElementById('email-input').value.trim();
   if (!email || !email.includes('@')) {
     document.getElementById('email-input').style.borderColor = '#E24B4A';
     document.getElementById('email-input').focus();
     return;
   }
-  document.getElementById('modal-form-state').style.display = 'none';
-  document.getElementById('modal-success-state').style.display = 'block';
-  console.log('Email captured:', email, 'type:', modalType, 'kit:', getKit().title, 'answers:', answers);
+
+  const kit = getKit();
+  const submitBtn = document.getElementById('modal-submit-btn');
+  const originalText = submitBtn.textContent;
+  submitBtn.textContent = 'Joining...';
+  submitBtn.disabled = true;
+
+  if (typeof posthog !== 'undefined') {
+    posthog.capture('waitlist_signup_attempt', {
+      type: modalType,
+      kit: kit.title
+    });
+  }
+
+  try {
+    const response = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email,
+        type: modalType,
+        kit: kit.title,
+        answers
+      })
+    });
+
+    if (!response.ok) throw new Error('Failed to save email');
+
+    if (typeof posthog !== 'undefined') {
+      posthog.capture('waitlist_signup_success', {
+        type: modalType,
+        kit: kit.title
+      });
+      posthog.identify(email, { email });
+    }
+
+    document.getElementById('modal-form-state').style.display = 'none';
+    document.getElementById('modal-success-state').style.display = 'block';
+  } catch (error) {
+    console.error('Error saving email:', error);
+    if (typeof posthog !== 'undefined') {
+      posthog.capture('waitlist_signup_error', {
+        error: error.message,
+        type: modalType
+      });
+    }
+    document.getElementById('email-input').style.borderColor = '#E24B4A';
+    submitBtn.textContent = originalText;
+    submitBtn.disabled = false;
+  }
 }
 
 function restartQuiz() {

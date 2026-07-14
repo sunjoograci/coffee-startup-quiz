@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Find your perfect home coffee setup — free quiz</title>
-  <meta name="description" content="Answer 5 quick questions and get a personalized home coffee setup — no jargon, no overwhelm. Real gear recommendations with links to buy." />
+  <title>Find your perfect home coffee setup - free quiz</title>
+  <meta name="description" content="Answer 5 quick questions and get a personalized home coffee setup. No jargon, no overwhelm. Real gear recommendations with links to buy." />
 
   <meta property="og:title" content="What coffee setup is right for you? Take the quiz." />
-  <meta property="og:description" content="5 questions. Instant personalized gear recommendations. No jargon — just the exact setup for your budget, taste, and lifestyle." />
+  <meta property="og:description" content="5 questions. Instant personalized gear recommendations. No jargon, just the exact setup for your budget, taste, and lifestyle." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://images.unsplash.com/photo-1509785307050-d4066910ec1e?w=1200&q=80" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -19,6 +19,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+
+  <script>
+    !function(t,e){var o,n,p,r,a=[];function s(t){var e;"{object"==typeof(e=t)&&(e.hasOwnProperty("distinct_id")||e.hasOwnProperty("token")||e.hasOwnProperty("config")||e.hasOwnProperty("api_host"))?window[o].config(e):"{string"==typeof t&&(window[o].api_host=t)}function c(t,e){window[o][t]=function(){var t=Array.prototype.slice.call(arguments);return t.unshift(new Date().getTime()),a.push(t),a}}(o="__PosthogQueue",n="posthog").(p=["capture","opt_in_capturing","opt_out_capturing","reset","set_config","startPageView","stopPageView","identify","properties","register","unregister","on","off","get_distinct_id","has_opted_in_capturing","has_opted_out_capturing","clear_opt_in_out_capturing","debug","set_config","get_config","load_array","push"]).forEach(function(t){window[o][t]=c(t)}),window.posthog=window[o],posthog.load=function(o,c){var u=document.createElement("script");u.defer=!0,u.src="https://us-assets.posthog.com/array.js",t.parentNode.insertBefore(u,t),"undefined"!=typeof e&&(posthog.config=s,posthog.config(o),posthog.config(c))};var u=e.querySelector("[data-api-key]");posthog.config(u?.getAttribute("data-api-key")),u&&posthog.load(u.getAttribute("data-api-key"),u.getAttribute("data-config")||{})}(document,window);
+    posthog.load('phc_jmQxzXvz3V1S7LoC5h0k2lWnFv5sRSBhGX1jnfY1s1E', {
+      api_host: 'https://us.posthog.com',
+      autocapture: false
+    });
+  </script>
 </head>
 <body>
 
@@ -26,7 +34,7 @@
 <header class="hero">
   <div class="hero-eyebrow">Home coffee quiz</div>
   <h1 class="hero-title">Stop guessing.<br>Find your <em>perfect</em> setup.</h1>
-  <p class="hero-sub">5 questions. Instant personalized gear — matched to your budget, taste, and how much time you actually have.</p>
+  <p class="hero-sub">5 questions. Instant personalized gear, matched to your budget, taste, and how much time you actually have.</p>
   <div class="hero-stats">
     <div class="stat">
       <span class="stat-num">5 min</span>
@@ -56,19 +64,19 @@
       <div class="options">
         <div class="opt" data-step="0" data-val="espresso">
           <span class="opt-icon">☕</span>
-          <div><div class="opt-title">Espresso or lattes</div><div class="opt-desc">Rich, concentrated, milk-based — cappuccinos, flat whites, cortados</div></div>
+          <div><div class="opt-title">Espresso or lattes</div><div class="opt-desc">Rich, concentrated milk-based drinks like cappuccinos, flat whites, cortados</div></div>
         </div>
         <div class="opt" data-step="0" data-val="pourover">
           <span class="opt-icon">🫖</span>
-          <div><div class="opt-title">Black coffee, pour-over</div><div class="opt-desc">Clean, nuanced, bright — I want to taste the coffee itself</div></div>
+          <div><div class="opt-title">Black coffee, pour-over</div><div class="opt-desc">Clean, nuanced, bright. I want to taste the coffee itself</div></div>
         </div>
         <div class="opt" data-step="0" data-val="coldbrew">
           <span class="opt-icon">🧊</span>
-          <div><div class="opt-title">Cold brew or iced coffee</div><div class="opt-desc">Smooth, low-acid, refreshing — especially in summer</div></div>
+          <div><div class="opt-title">Cold brew or iced coffee</div><div class="opt-desc">Smooth, low-acid, refreshing, especially in summer</div></div>
         </div>
         <div class="opt" data-step="0" data-val="mixed">
           <span class="opt-icon">🎯</span>
-          <div><div class="opt-title">I want it all — not sure yet</div><div class="opt-desc">Help me figure out what I'll actually love at home</div></div>
+          <div><div class="opt-title">I want it all, not sure yet</div><div class="opt-desc">Help me figure out what I'll actually love at home</div></div>
         </div>
       </div>
       <div class="nav"><div></div><button class="btn-next" id="next-0" onclick="advance(0)">Next →</button></div>
@@ -77,7 +85,7 @@
     <!-- Step 1 -->
     <div class="step" id="step-1">
       <h2 class="step-q">What's your honest budget for a setup?</h2>
-      <p class="step-sub">This covers everything — machine, grinder, accessories. You can always upgrade later.</p>
+      <p class="step-sub">This covers everything: machine, grinder, accessories. You can always upgrade later.</p>
       <div class="options">
         <div class="opt" data-step="1" data-val="low">
           <span class="opt-icon">💰</span>
