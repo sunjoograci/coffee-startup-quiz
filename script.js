@@ -259,6 +259,7 @@ document.addEventListener('keydown', function (e) {
 async function handleSubmit() {
   const email = document.getElementById('email-input').value.trim();
   if (!email || !email.includes('@')) {
+    console.log('Email validation failed:', { email, hasAt: email.includes('@') });
     document.getElementById('email-input').style.borderColor = '#E24B4A';
     document.getElementById('email-input').focus();
     return;
@@ -266,9 +267,12 @@ async function handleSubmit() {
 
   const kit = getKit();
   const submitBtn = document.getElementById('modal-submit-btn');
+  const emailInput = document.getElementById('email-input');
   const originalText = submitBtn.textContent;
+
   submitBtn.textContent = 'Joining...';
   submitBtn.disabled = true;
+  emailInput.style.borderColor = '';
 
   if (typeof posthog !== 'undefined') {
     posthog.capture('waitlist_signup_attempt', {
@@ -278,6 +282,7 @@ async function handleSubmit() {
   }
 
   try {
+    console.log('Submitting email:', email);
     const response = await fetch('/api/subscribe', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -289,7 +294,11 @@ async function handleSubmit() {
       })
     });
 
-    if (!response.ok) throw new Error('Failed to save email');
+    console.log('Response status:', response.status);
+    const data = await response.json();
+    console.log('Response data:', data);
+
+    if (!response.ok) throw new Error(data.error || 'Failed to save email');
 
     if (typeof posthog !== 'undefined') {
       posthog.capture('waitlist_signup_success', {
@@ -309,7 +318,7 @@ async function handleSubmit() {
         type: modalType
       });
     }
-    document.getElementById('email-input').style.borderColor = '#E24B4A';
+    emailInput.style.borderColor = '#E24B4A';
     submitBtn.textContent = originalText;
     submitBtn.disabled = false;
   }
