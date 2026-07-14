@@ -37,7 +37,7 @@ const KITS = {
       items: [
         { name: "Breville Barista Express Impress", why: "Built-in grinder, pressure gauge, auto-tamp assist. Everything you need in one unit", price: "$480", link: "https://www.amazon.com/Breville-Barista-Express-Impress-BES876BSS/dp/B07Y3VPHBF" },
         { name: "Baratza Sette 270 grinder", why: "Dedicated espresso grinder with micro-adjustments. Your built-in grinder will only take you so far", price: "$140", link: "https://www.amazon.com/Baratza-Sette-270-Conical-Grinder/dp/B01IHQJWSE" },
-        { name: "Acaia Pearl scale", why: "Tracks exactly how much coffee goes in and comes out, with a built-in timer. This is how you actually dial in shots", price: "$150", link: "https://www.amazon.com/Acaia-Pearl-Scale-Espresso-Black/dp/B08VL8PX8S" },
+        { name: "Acaia Pearl scale", why: "Tracks exactly how much coffee goes in and comes out, with a built-in timer. This is how you actually dial in shots", price: "$150", link: "https://espressoparts.com/products/acaia-pearl-model-s-black?variant=37557472035003&country=US&currency=USD&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic" },
         { name: "Milk pitcher + thermometer", why: "For making latte art when you're ready. You'll get there sooner than you think", price: "$40", link: "https://www.amazon.com/Rattleware-Stainless-Espresso-Steaming-Pitcher/dp/B00OXGZJVI" }
       ]
     }
@@ -73,7 +73,7 @@ const KITS = {
       items: [
         { name: "Fellow Stagg EKG Pro kettle", why: "Bluetooth connectivity and stopwatch mode. Pairs perfectly with your brew timer", price: "$200", link: "https://www.amazon.com/Fellow-Stagg-EKG-Gooseneck-Kettle/dp/B0851D3C5D" },
         { name: "Fellow Ode Gen 2 grinder", why: "Flat burrs produce more even particle size. A real upgrade from conical burrs", price: "$250", link: "https://www.amazon.com/Fellow-Ode-Grinder-Stainless-Steel/dp/B095GQRXPP" },
-        { name: "Acaia Pearl scale", why: "Tracks your flow rate in real-time. Tells you if your pour is consistent", price: "$150", link: "https://www.amazon.com/Acaia-Pearl-Scale-Espresso-Black/dp/B08VL8PX8S" }
+        { name: "Acaia Pearl scale", why: "Tracks your flow rate in real-time. Tells you if your pour is consistent", price: "$150", link: "https://espressoparts.com/products/acaia-pearl-model-s-black?variant=37557472035003&country=US&currency=USD&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic" }
       ]
     }
   },
@@ -236,7 +236,7 @@ let modalType = 'guide';
 function openModal(type) {
   modalType = type;
   document.getElementById('modal-title-text').textContent = 'Join our brew coach app waitlist';
-  document.getElementById('modal-sub').textContent = "Drop your email and we'll notify you as soon as the app launches — early access to learn how to dial in your perfect brew.";
+  document.getElementById('modal-sub').textContent = "Drop your email and we'll notify you as soon as the app launches. You'll get early access to learn how to dial in your perfect brew.";
   document.getElementById('modal-submit-btn').textContent = 'Join the waitlist →';
   document.getElementById('modal-form-state').style.display = 'block';
   document.getElementById('modal-success-state').style.display = 'none';
